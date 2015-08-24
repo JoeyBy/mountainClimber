@@ -9,21 +9,24 @@
       {{> addPostForm}}
     </header>
 
-    <ul>
+    <div class="container">
       {{#each posts}}
         {{> post}}
       {{/each}}
-    </ul>
+    </div>
   </div>
 </body>
 
 <template name="post">
-  <span class="post"><strong>{{username}}</strong> -- {{title}} -- {{body}} <br> 
-    <ul>
-      {{#each comments}}
-        {{> comment}}
-      {{/each}}
-    </ul>
+  <span class="post">
+    <div class="container">
+      <section class="post-username"> 
+        <strong>{{username}}</strong> 
+      </section>
+      <section class="post-body">
+        {{title}} -- {{body}}
+      </section>
+    </div>
   </span>
 </template>
 

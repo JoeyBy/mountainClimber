@@ -2,6 +2,8 @@ Posts = new Mongo.Collection("Posts");
 
 if (Meteor.isClient) {
   //This code only runs on the client
+  Meteor.subscribe("posts")
+
   Template.addPostForm.events({
     'submit .new-post': function(event) {
       event.preventDefault();
@@ -30,8 +32,9 @@ if (Meteor.isClient) {
 if (Meteor.isServer) {
   Meteor.startup(function () {
     // code to run on server at startup
-    Meteor.publish("post", function() {
-      return Posts.find({});
+    Meteor.publish("posts", function() {
+      console.log("PUBLISHED!")
+      return Posts.find();
     })
   });
 }

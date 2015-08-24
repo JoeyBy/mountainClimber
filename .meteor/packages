@@ -5,8 +5,10 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
 insecure
 accounts-ui
 accounts-password
 accounts-base
+less
+nemo64:bootstrap
+iron:router
