@@ -18,19 +18,17 @@
 </template>
 
 <template name="post">
-  <div class="post-box">
-    <span class="post">
-      <div class="post-username"> 
-        <strong>{{username}}</strong>
-        {{#if isOwner owner}}
-          <button class="delete">Delete</button>
-        {{/if}}
-        <!-- <button class="update">Update</button> -->
-      </div>
-      <div class="post-body">
-        {{title}} -- {{body}}
-      </div>
-    </span>
+  <div class="col-lg-3 post-box ">
+    <div class="post-username"> 
+      <strong>{{username}}</strong>
+      {{#if isOwner owner}}
+        <!-- <button class="delete">Delete</button> -->
+      {{/if}}
+      <!-- <button class="update">Update</button> -->
+    </div>
+    <div class="post-body">
+      {{title}} -- {{body}}
+    </div>
   </div>  
 </template>
 
