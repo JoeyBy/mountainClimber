@@ -1,0 +1,43 @@
+<template name="home">
+  <head>
+    <title>clubTread</title>
+  </head>
+
+  <body>
+    <div class="container">
+        {{> loginButtons}}
+        {{> addPostForm}}
+
+      <div class="container all-posts">
+        {{#each posts}}
+          {{> post}}
+        {{/each}}
+      </div>
+    </div>
+  </body>
+</template>
+
+<template name="post">
+  <div class="post-box">
+    <span class="post">
+      <div class="post-username"> 
+        <strong>{{username}}</strong>
+        {{#if isOwner owner}}
+          <button class="delete">Delete</button>
+        {{/if}}
+        <!-- <button class="update">Update</button> -->
+      </div>
+      <div class="post-body">
+        {{title}} -- {{body}}
+      </div>
+    </span>
+  </div>  
+</template>
+
+<template name="addPostForm">
+  <form class="new-post">
+    <input type="text" name="title" placeholder="title">
+    <input type="text" name="body" placeholder="body">
+    <input type="submit" value="Add Post">
+  </form>
+</template>
