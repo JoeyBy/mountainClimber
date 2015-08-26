@@ -1,0 +1,41 @@
+<template name="home">
+  <body>
+    <div class="container">
+        {{> loginButtons}}
+        {{> addPostForm}}
+    </div>
+    <div class="container all-posts">
+      {{#each posts}}
+        {{> post}}
+      {{/each}}
+    </div>
+  </body>
+</template>
+
+<template name="post">
+  <div class="span4 post-outerbox">
+    <div class="post-innerbox">
+      <div class="post-title">
+        {{title}} 
+      </div>
+      <div class="post-body">
+        {{body}}
+      </div>
+    </div>
+    <div class="post-username"> 
+      <strong>Posted By: {{username}}</strong>
+      {{#if isOwner owner}}
+        <button class="delete">Delete</button>
+      {{/if}}
+      <!-- <button class="update">Update</button> -->
+    </div>
+  </div>  
+</template>
+
+<template name="addPostForm">
+  <form class="new-post">
+    <input type="text" name="title" placeholder="title">
+    <input type="text" name="body" placeholder="body">
+    <input type="submit" value="Add Post">
+  </form>
+</template>
