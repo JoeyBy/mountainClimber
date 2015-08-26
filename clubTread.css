@@ -3,6 +3,23 @@ body {
   background-color: #05C1FF;
 }
 
+.login-form {
+  width: 250px;
+}
+
+.login-title {
+  padding-left: 5%;
+}
+
+.login-input {
+  margin-left: 10%;
+}
+
+#login-button{
+  margin-left: 71%;
+  margin-top: 2%;
+}
+
 .post-outerbox {
   border: 1px solid #05C1FF;
   /*width: 350px;*/

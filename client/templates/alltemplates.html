@@ -4,8 +4,7 @@
   </header>
   <body>
     <div class="container">
-        {{> loginButtons}}
-        {{> addPostForm}}
+      {{> addPostForm}}
     </div>
     <div class="container all-posts">
       {{#each posts}}
@@ -31,8 +30,19 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li>{{> loginButtons}}</li>
+        
+        <ul class="nav navbar-nav navbar-right">
+        {{#if currentUser}}
+          <p class="navbar-text">Signed in as {{currentUser}} </p>
+        {{else}}
+          <li class="dropdown">
+             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              {{> login}}
+            </ul>
+          </li>
+        {{/if}}
+        <!-- <li>{{> loginButtons}}</li> -->
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -40,7 +50,7 @@
             <li><a href="#">Another action</a></li>
             <li><a href="#">Something else here</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
+            <li id="logout-button"><a>Sign out</a></li>
           </ul>
         </li>
       </ul>
@@ -48,6 +58,25 @@
   </div><!-- /.container-fluid -->
 </nav>
 </template>
+
+<template name="login">
+  <form id="login-form" action="action">
+    <div class="login-form">
+      <table>
+        <tr><td class="login-title">Username: </td><input type="username" id="login-username" class="login-input" /></tr>
+        <tr><td class="login-title">Password: </td><input type="password" id="login-password" class="login-input"/></tr>
+      <tr><td></td><td><input type="submit" id="login-button" value="Sign in" /></td></tr>
+      </table>
+    </div>
+  </form> 
+</template>
+
+<!-- <template name="userGreeting">
+  <div>
+    
+  </div>
+</template> -->
+
 
 <template name="post">
   <div class="col-md-4 col-sm-4 col-xs-6 post-outerbox">
