@@ -3,6 +3,16 @@ body {
   background-color: #05C1FF;
 }
 
+.img-splash{
+  width: 100%;
+  margin-top: -20px;
+  margin-left: 0px;
+  overflow: hidden
+}
+.img-splash img {
+  width: 100%;
+}
+
 .login-form {
   width: 250px;
 }
