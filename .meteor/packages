@@ -6,10 +6,9 @@
 
 meteor-platform
 insecure
-accounts-ui
 accounts-password
 accounts-base
 less
 nemo64:bootstrap
 iron:router
-bootstrap
+mizzao:bootstrap-3
