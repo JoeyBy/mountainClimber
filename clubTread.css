@@ -3,8 +3,44 @@ body {
   background-color: #05C1FF;
 }
 
+.navbar {
+  box-shadow: 0 0 2px black;
+  border-radius: 0px;
+}
+
+.img-splash{
+  width: 100%;
+  margin-top: -20px;
+  margin-left: 0px;
+  overflow: hidden
+}
+.img-splash img {
+  width: 100%;
+  z-index: -1;
+}
+.img-seperation {
+  height:1px;
+}
+
+.login-form {
+  width: 250px;
+}
+
+.login-title {
+  padding-left: 5%;
+}
+
+.login-input {
+  margin-left: 10%;
+}
+
+#login-button{
+  margin-left: 71%;
+  margin-top: 2%;
+}
+
 .post-outerbox {
-  border: 1px solid black;
+  border: 1px solid #05C1FF;
   /*width: 350px;*/
   height: 400px;
   word-wrap: break-word;
@@ -13,8 +49,15 @@ body {
   position: relative;
   background-color: white;
 /*  float: none;*/
-  margin-right: -2.4%;
-  margin-left: 2.4%;
+  /*margin-right: */
+  /*margin-bottom: 0.1%*/
+}
+
+.post-outerbox:hover {
+  -moz-box-shadow: 0 0 20px #ccc;
+  -webkit-box-shadow: 0 0 20px #ccc;
+  box-shadow: 0 0 10px black;
+  z-index: 2;
 }
 .post-innerbox {
   width: 96%;
@@ -38,8 +81,8 @@ body {
 }
 
 .col-centered {
-      display: inline-block;
-    float: none;
-    text-align: left;
-    margin-right: -4px;
+  display: inline-block;
+  float: none;
+  text-align: left;
+  margin-right: -4px;
 }

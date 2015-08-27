@@ -20,22 +20,44 @@ Template.post.events({
   "click .update": function() {
     Meteor.call("updatePost", this._id);
   }
-
 });
 
+Template.nav.events({
+  "click #logout-button": function() {
+    Meteor.logout();
+  }
+})
+
 Template.post.helpers({
-    isOwner:function(owner){
-       return (Meteor.userId() == owner)
-    }
+  isOwner:function(owner){
+     return (Meteor.userId() == owner)
+  }
+})
+
+Template.nav.helpers({
+  currentUser: function() {
+    return Meteor.user().username;
+  }
 })
 
 
-// Template.body.helpers({
-//   posts: function() {
-//     return Posts.find({}, {sort: {createdAt: -1}});
-//   }
-// });
+Template.login.events({
+  'submit #login-form' : function(event, t){
+    event.preventDefault();
+    // retrieve the input field values
+    var username = t.find('#login-username').value
+      , password = t.find('#login-password').value;
+      // Trim and validate your fields here.... 
 
-Accounts.ui.config({
-  passwordSignupFields: "USERNAME_ONLY"
+      // Meteor.loginWithPassword() function.
+      Meteor.loginWithPassword(username, password, function(err){
+      if (err)
+        console.log("SOMETHING DIDNT WORK!")
+      else
+        console.log("Success!")
+    });
+       return false; 
+    }
 });
+
+
