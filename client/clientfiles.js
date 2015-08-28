@@ -36,7 +36,7 @@ Template.post.helpers({
 
 Template.nav.helpers({
   currentUser: function() {
-    return Meteor.user().username;
+    return Meteor.user();
   }
 })
 
