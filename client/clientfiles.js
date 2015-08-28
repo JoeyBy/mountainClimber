@@ -30,12 +30,18 @@ Template.post.events({
 Template.nav.events({
   "click #logout-button": function() {
     Meteor.logout();
-  }
+  },
 })
 
 Template.post.helpers({
   isOwner:function(owner){
      return (Meteor.userId() == owner)
+  }
+})
+
+Template.postView.helpers({
+  postOwner: function(owner) {
+    return Meteor.user()
   }
 })
 

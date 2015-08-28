@@ -21,20 +21,19 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+    <div class="navbar-header logo">
+      <button type="button" class="navbar-toggle collapsed logo" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand logo" href="#">Brand</a>
+      <a class="navbar-brand logo" href="/">Brand</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        
-        <ul class="nav navbar-nav navbar-right">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">  
+      <ul class="nav navbar-nav navbar-right">
         {{#if currentUser}}
           <li class="dropdown">
           <a href="#" class="dropdown-toggle nav-font" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi {{currentUser.username}}<span class="caret"></span></a>
@@ -48,13 +47,12 @@
         </li>
         {{else}}
           <li class="dropdown">
-             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login<span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login<span class="caret"></span></a>
             <ul class="dropdown-menu">
               {{> login}}
             </ul>
           </li>
         {{/if}}
-        <!-- <li>{{> loginButtons}}</li> -->
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -106,4 +104,31 @@
     <input type="text" name="body" placeholder="body">
     <input type="submit" value="Add Post">
   </form>
+</template>
+
+<template name="newUser">
+    <h2>Register</h2>
+    <form class="register">
+        <p>Username: <input type="username" name="username"></p>
+        <p></p>
+        <p>Password: <input type="password" name="password"></p>
+        <p><input type="submit" value="Register"></p>
+    </form>
+</template>
+
+<template name="postView">
+  <header>
+    {{> nav}}
+  </header>
+  <div class="whole-post">
+    <div class="whole-post-title">
+      {{singlePost.title}}
+    </div>
+    <div class="whole-post-body">
+      {{singlePost.body}}
+    </div>
+    <div class="post-owner">
+     {{postOwner}}
+    </div>
+  </div>
 </template>

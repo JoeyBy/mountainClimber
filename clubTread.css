@@ -124,3 +124,19 @@ header .navbar-default {
   text-align: left;
   margin-right: -4px;
 }
+
+.whole-post {
+  border: 1px solid black;
+  width: 90%;
+  margin-left: 5%;
+}
+
+.whole-post-title {
+  margin: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.whole-post-body {
+  padding: 10px;
+}
