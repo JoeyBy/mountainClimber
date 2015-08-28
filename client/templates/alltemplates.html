@@ -5,8 +5,6 @@
   <body>
     <div class="img-splash">
       <img src="splash-short.jpg">
-
-      <!-- {{> addPostForm}} -->
     </div>
     <h3 class="title">ClubTread</h3>
     <div class="img-seperation">
@@ -41,7 +39,7 @@
           <li class="dropdown">
           <a href="#" class="dropdown-toggle nav-font" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi {{currentUser.username}}<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
+            <li>{{> addPostForm}}</li>
             <li><a href="#">Another action</a></li>
             <li><a href="#">Something else here</a></li>
             <li role="separator" class="divider"></li>

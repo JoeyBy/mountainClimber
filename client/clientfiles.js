@@ -19,7 +19,12 @@ Template.post.events({
 
   "click .update": function() {
     Meteor.call("updatePost", this._id);
+  },
+
+  "click .post-innerbox": function() {
+    Router.go('post/:_postId', {_postId: this._id});
   }
+
 });
 
 Template.nav.events({

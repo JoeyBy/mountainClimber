@@ -1,4 +1,4 @@
-Posts = new Mongo.Collection("Posts");
+
 
 if (Meteor.isClient) {
 
