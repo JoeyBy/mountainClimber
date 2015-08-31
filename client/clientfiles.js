@@ -31,13 +31,15 @@ Template.nav.events({
   },
 })
 Template.newUser.events({
-  'submit form': function(event, t){
+  'submit .register': function(event, t){
     event.preventDefault();
-    var username = t.find('[name=username]').val();
-    var email = $('[name=email]').val();
-    var aboutMe = $('[name=aboutMe]').val();
-    var location = $('[name=location]').val();
-    var password = $('[name=password]').val();
+    var username = t.find('#create-username').value;
+    var email = t.find('#create-email').value;
+    var aboutMe = t.find('#create-about-me').value;
+    var location = t.find('#create-location').value;
+    var password = t.find('#create-password').value;
+
+    Meteor.call("createNewUser", username, email, aboutMe, location, password)
   }
 });
 Template.login.events({
