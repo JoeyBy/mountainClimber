@@ -138,3 +138,8 @@ header .navbar-default {
   width: 95%;
   margin: 8px; 
 }
+.post-owner {
+  height: 100px;
+  text-align: center;
+  font-size: 20px;
+}

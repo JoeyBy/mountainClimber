@@ -132,13 +132,14 @@
   </header>
   <div class="whole-post">
     <div class="whole-post-title">
-      {{singlePost.title}}
+      {{onePost.singlePost.title}}
     </div>
     <div class="whole-post-body">
-      {{singlePost.body}}
+      {{onePost.singlePost.body}}
+      {{onePost.singlePost.Id}}
     </div>
     <div class="post-owner">
-     {{postOwner}}
+     {{poster.posterOwner.username}}
     </div>
   </div>
 </template>

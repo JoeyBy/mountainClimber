@@ -40,6 +40,11 @@ Template.newUser.events({
     var password = t.find('#create-password').value;
 
     Meteor.call("createNewUser", username, email, aboutMe, location, password)
+      event.target.username.value = '';
+      event.target.email.value = '';
+      event.target.aboutMe.value = '';
+      event.target.location.value = '';
+      event.target.password.value = '';
   }
 });
 Template.login.events({
@@ -67,11 +72,11 @@ Template.post.helpers({
      return (Meteor.userId() == owner);
   }
 });
-Template.postView.helpers({
-  postOwner: function(owner) {
-    var ownerId = Posts;
-  }
-});
+// Template.postView.helpers({
+//   postOwner: function(owner) {
+//     console.log(Meteor.users.find({_id: owner}))
+//   }
+// });
 Template.nav.helpers({
   currentUser: function() {
     return Meteor.user();
