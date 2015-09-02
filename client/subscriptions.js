@@ -1,2 +1,2 @@
 Meteor.subscribe("posts");
-Meteor.subscribe('users');
+Meteor.subscribe("allUsers");

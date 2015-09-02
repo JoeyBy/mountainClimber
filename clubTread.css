@@ -1,6 +1,7 @@
 /* CSS declarations go here */
 body {
-  background-color: #05C1FF;
+  /*background-color: #05C1FF;*/
+  background-color: white;
 }
 .navbar {
   border-radius: 0px;
@@ -64,9 +65,9 @@ header .navbar-default {
   margin-right: 10px;
 }
 .post-outerbox {
-  border: 1px solid #05C1FF;
+  /*border: 1px solid #05C1FF;*/
   /*width: 350px;*/
-  height: 400px;
+  height: 275px;
   word-wrap: break-word;
   overflow: hidden;
   display: inline-block;
@@ -88,14 +89,22 @@ header .navbar-default {
   margin-left: 2%;
   margin-top: 2%;
 }
+.post-title{
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+}
+.post-picture{
+  width:100%;
+}
 .post-username {
   /*border: 1px solid black;*/
   height: 30px;
   position: absolute;
   bottom: 0;
   margin: 1%;
-  padding: 1%;
-  width: 96%;
+  padding: 2%;
+  width: 88%;
   background-color: #FDE2A9;
 }
 .col-centered {

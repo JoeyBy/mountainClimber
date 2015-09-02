@@ -38,7 +38,7 @@
           <li class="dropdown">
           <a href="#" class="dropdown-toggle nav-font" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi {{currentUser.username}}<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li>{{> addPostForm}}</li>
+            <li><a href="post/new">New post</a></li>
             <li><a href="#">Another action</a></li>
             <li><a href="#">Something else here</a></li>
             <li role="separator" class="divider"></li>
@@ -86,7 +86,7 @@
         {{title}} 
       </div>
       <div class="post-body">
-        {{body}}
+        <img class="post-picture" src="testing.jpg">
       </div>
     </div>
     <div class="post-username"> 
@@ -99,12 +99,17 @@
   </div>  
 </template>
 
-<template name="addPostForm">
-  <form class="new-post">
-    <input type="text" name="title" placeholder="title">
-    <input type="text" name="body" placeholder="body">
-    <input type="submit" value="Add Post">
-  </form>
+<template name="newPost">
+  <header>
+    {{> nav}}
+  </header>
+  <div>
+    <form class="new-post">
+      <input type="text" name="title" placeholder="title">
+      <input type="text" name="body" placeholder="body">
+      <input type="submit" value="Add Post">
+    </form>
+  </div>
 </template>
 
 <template name="newUser">
@@ -139,7 +144,7 @@
       {{onePost.singlePost.Id}}
     </div>
     <div class="post-owner">
-     {{poster.posterOwner.username}}
+     {{poster.posterOwner}}
     </div>
   </div>
 </template>
