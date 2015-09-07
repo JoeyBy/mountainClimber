@@ -102,9 +102,9 @@ header .navbar-default {
   height: 30px;
   position: absolute;
   bottom: 0;
-  margin: 1%;
+  margin: 2%;
   padding: 2%;
-  width: 88%;
+  width: 87%;
   background-color: #FDE2A9;
 }
 .col-centered {

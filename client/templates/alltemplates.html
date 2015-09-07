@@ -91,9 +91,6 @@
     </div>
     <div class="post-username"> 
       <strong>Posted By: {{username}}</strong>
-      {{#if isOwner owner}}
-        <button class="delete">Delete</button>
-      {{/if}}
       <!-- <button class="update">Update</button> -->
     </div>
   </div>  
@@ -136,6 +133,10 @@
     {{> nav}}
   </header>
   <div class="whole-post">
+<!--     {{#if isOwner owner}}
+      <button class="delete">Delete</button>
+    {{/if}} -->
+
     <div class="whole-post-title">
       {{onePost.singlePost.title}}
     </div>
