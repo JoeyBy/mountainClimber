@@ -5,12 +5,11 @@
   <body>
     <div class="img-splash">
       <img src="splash-short.jpg">
-
-      <!-- {{> addPostForm}} -->
     </div>
+    <h3 class="title">ClubTread</h3>
     <div class="img-seperation">
     </div>
-    <div class="container all-posts">
+    <div class="all-posts">
       {{#each posts}}
         {{> post}}
       {{/each}}
@@ -22,25 +21,24 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+    <div class="navbar-header logo">
+      <button type="button" class="navbar-toggle collapsed logo" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Brand</a>
+      <a class="navbar-brand logo" href="/">Brand</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        
-        <ul class="nav navbar-nav navbar-right">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">  
+      <ul class="nav navbar-nav navbar-right">
         {{#if currentUser}}
           <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Signed in as {{currentUser}}<span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle nav-font" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi {{currentUser.username}}<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
+            <li><a href="post/new">New post</a></li>
             <li><a href="#">Another action</a></li>
             <li><a href="#">Something else here</a></li>
             <li role="separator" class="divider"></li>
@@ -48,14 +46,14 @@
           </ul>
         </li>
         {{else}}
+          <a class="navbar-brand logo" href="user/new">Sign-up</a>
           <li class="dropdown">
-             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login<span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login<span class="caret"></span></a>
             <ul class="dropdown-menu">
               {{> login}}
             </ul>
           </li>
         {{/if}}
-        <!-- <li>{{> loginButtons}}</li> -->
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -82,29 +80,77 @@
 
 
 <template name="post">
-  <div class="col-md-4 col-sm-4 col-xs-6 post-outerbox">
+  <div class="col-md-3 col-sm-4 col-xs-6 post-outerbox">
     <div class="post-innerbox">
       <div class="post-title">
         {{title}} 
       </div>
       <div class="post-body">
-        {{body}}
+        <img class="post-picture" src="testing.jpg">
       </div>
     </div>
     <div class="post-username"> 
       <strong>Posted By: {{username}}</strong>
-      {{#if isOwner owner}}
-        <button class="delete">Delete</button>
-      {{/if}}
       <!-- <button class="update">Update</button> -->
     </div>
   </div>  
 </template>
 
-<template name="addPostForm">
-  <form class="new-post">
-    <input type="text" name="title" placeholder="title">
-    <input type="text" name="body" placeholder="body">
-    <input type="submit" value="Add Post">
-  </form>
+<template name="newPost">
+  <header>
+    {{> nav}}
+  </header>
+  <div>
+    <form class="new-post">
+      <input type="text" name="title" placeholder="title">
+      <input type="text" name="body" placeholder="body">
+      <input type="submit" value="Add Post">
+    </form>
+  </div>
+</template>
+
+<template name="newUser">
+  <header>
+  {{> nav}}
+  </header>
+  <div class="container new-user-container">
+    <form class="register">
+      <h2>Register</h2>
+      <table class="new-user">
+        <tr><td class="new-user-title">Username: </td><td><input type="username" id="create-username" name="username" class="form-control"></td></tr>
+        <tr><td class="new-user-title">Email: </td><td><input type="email" id="create-email" name="email" class="form-control"></td></tr>
+        <tr><td class="new-user-title">About me: </td><td><input type="aboutMe" id="create-about-me" name="aboutMe" class="form-control"></td></tr>
+        <tr><td class="new-user-title">Location: </td><td><input type="location" id="create-location" name="location" class="form-control"></td></tr>
+        <tr><td class="new-user-title">Password: </td><td><input type="password" id="create-password" name="password" class="form-control"></td></tr>
+        <tr><td></td><td><input type="submit" id="create-submit" value="submit"></td></tr>
+      </table>
+    </form>
+  </div>
+</template>
+
+<template name="postView">
+  <header>
+    {{> nav}}
+  </header>
+  <div class="whole-post">
+    <div class="postView-owner">
+      <div class="postView-ownerInner">
+        <div class="postView-username">
+         {{poster.posterUser.username}}
+        </div>
+        <div class="postView-aboutMe">
+         About me: {{poster.posterUser.profile.aboutMe}}
+        </div>
+      </div>
+    </div>
+    <div class="postView-content">
+      <div class="postView-title">
+        {{onePost.singlePost.title}}
+      </div>
+      <div class="postView-body">
+        {{onePost.singlePost.body}}
+        {{onePost.singlePost.Id}}
+      </div>
+    </div>
+  </div>
 </template>

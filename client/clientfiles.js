@@ -1,17 +1,16 @@
-Template.addPostForm.events({
-  'submit .new-post': function(event) {
-    event.preventDefault();
+// Template.addPostForm.events({
+//   'submit .new-post': function(event) {
+//     event.preventDefault();
 
-    var title = event.target.title.value;
-    var body = event.target.body.value;
+//     var title = event.target.title.value;
+//     var body = event.target.body.value;
 
-    Meteor.call("addPost", title, body);
+//     Meteor.call("addPost", title, body);
 
-    event.target.title.value = '';
-    event.target.body.value = '';
-  }
-})
-
+//     event.target.title.value = '';
+//     event.target.body.value = '';
+//   }
+// })
 Template.post.events({
   "click .delete": function () {
     Meteor.call("deletePost", this._id);
@@ -19,28 +18,35 @@ Template.post.events({
 
   "click .update": function() {
     Meteor.call("updatePost", this._id);
-  }
-});
+  },
 
+  "click .post-innerbox": function() {
+    Router.go('post/:_postId', {_postId: this._id});
+  }
+
+});
 Template.nav.events({
   "click #logout-button": function() {
     Meteor.logout();
-  }
+  },
 })
+Template.newUser.events({
+  'submit .register': function(event, t){
+    event.preventDefault();
+    var username = t.find('#create-username').value;
+    var email = t.find('#create-email').value;
+    var aboutMe = t.find('#create-about-me').value;
+    var location = t.find('#create-location').value;
+    var password = t.find('#create-password').value;
 
-Template.post.helpers({
-  isOwner:function(owner){
-     return (Meteor.userId() == owner)
+    Meteor.call("createNewUser", username, email, aboutMe, location, password)
+      event.target.username.value = '';
+      event.target.email.value = '';
+      event.target.aboutMe.value = '';
+      event.target.location.value = '';
+      event.target.password.value = '';
   }
-})
-
-Template.nav.helpers({
-  currentUser: function() {
-    return Meteor.user().username;
-  }
-})
-
-
+});
 Template.login.events({
   'submit #login-form' : function(event, t){
     event.preventDefault();
@@ -59,5 +65,24 @@ Template.login.events({
        return false; 
     }
 });
+
+Template.postView.helpers({
+  isOwner: function(owner){
+     return (Meteor.userId() == owner);
+  }
+});
+// Template.postView.helpers({
+//   postOwner: function(owner) {
+//     console.log(Meteor.users.find({_id: owner}))
+//   }
+// });
+Template.nav.helpers({
+  currentUser: function() {
+    return Meteor.user();
+  }
+});
+
+
+
 
 
