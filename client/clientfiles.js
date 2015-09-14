@@ -1,16 +1,16 @@
-// Template.addPostForm.events({
-//   'submit .new-post': function(event) {
-//     event.preventDefault();
+Template.newPost.events({
+  'submit .new-post': function(event) {
+    event.preventDefault();
 
-//     var title = event.target.title.value;
-//     var body = event.target.body.value;
+    var title = event.target.title.value;
+    var body = event.target.body.value;
 
-//     Meteor.call("addPost", title, body);
+    Meteor.call("addPost", title, body);
 
-//     event.target.title.value = '';
-//     event.target.body.value = '';
-//   }
-// })
+    event.target.title.value = '';
+    event.target.body.value = '';
+  }
+})
 Template.post.events({
   "click .delete": function () {
     Meteor.call("deletePost", this._id);

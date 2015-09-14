@@ -101,10 +101,21 @@
     {{> nav}}
   </header>
   <div>
-    <form class="new-post">
-      <input type="text" name="title" placeholder="title">
-      <input type="text" name="body" placeholder="body">
-      <input type="submit" value="Add Post">
+    <form class="new-post" id="new-post-form">
+      <div class="newPost-form container">
+        <div class="newPost-fields">
+          <div class="newPost-title">
+            <h3>What do you want to call this?</h3>
+            <h5>(tips... Where and when did you go?)</h5>
+            <input type="text" name="title" placeholder="title">
+          </div>
+          <div class="newPost-body">
+            <textarea name="body" form="new-post-form" placeholder="Tell us about your trip..."></textarea>
+          </div>
+          <input type="submit" value="Add Post">
+        </div>
+      </div>
+      <br />
     </form>
   </div>
 </template>
@@ -138,6 +149,7 @@
         <div class="postView-username">
          {{poster.posterUser.username}}
         </div>
+        <img src="../profile.jpg" class="postView-img" >
         <div class="postView-aboutMe">
          About me: {{poster.posterUser.profile.aboutMe}}
         </div>
@@ -148,7 +160,9 @@
         {{onePost.singlePost.title}}
       </div>
       <div class="postView-body">
-        {{onePost.singlePost.body}}
+        <pre>
+          {{onePost.singlePost.body}}
+        </pre>
         {{onePost.singlePost.Id}}
       </div>
     </div>
