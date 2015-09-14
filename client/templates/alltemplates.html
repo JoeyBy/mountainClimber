@@ -133,19 +133,24 @@
     {{> nav}}
   </header>
   <div class="whole-post">
-<!--     {{#if isOwner owner}}
-      <button class="delete">Delete</button>
-    {{/if}} -->
-
-    <div class="whole-post-title">
-      {{onePost.singlePost.title}}
+    <div class="postView-owner">
+      <div class="postView-ownerInner">
+        <div class="postView-username">
+         {{poster.posterUser.username}}
+        </div>
+        <div class="postView-aboutMe">
+         About me: {{poster.posterUser.profile.aboutMe}}
+        </div>
+      </div>
     </div>
-    <div class="whole-post-body">
-      {{onePost.singlePost.body}}
-      {{onePost.singlePost.Id}}
-    </div>
-    <div class="post-owner">
-     {{poster.posterOwner}}
+    <div class="postView-content">
+      <div class="postView-title">
+        {{onePost.singlePost.title}}
+      </div>
+      <div class="postView-body">
+        {{onePost.singlePost.body}}
+        {{onePost.singlePost.Id}}
+      </div>
     </div>
   </div>
 </template>
