@@ -10,7 +10,7 @@ Template.newPost.events({
     event.target.title.value = '';
     event.target.body.value = '';
   }
-})
+});
 Template.post.events({
   "click .delete": function () {
     Meteor.call("deletePost", this._id);
@@ -23,13 +23,12 @@ Template.post.events({
   "click .post-innerbox": function() {
     Router.go('post/:_postId', {_postId: this._id});
   }
-
 });
 Template.nav.events({
   "click #logout-button": function() {
     Meteor.logout();
-  },
-})
+  }
+});
 Template.newUser.events({
   'submit .register': function(event, t){
     event.preventDefault();
@@ -48,7 +47,7 @@ Template.newUser.events({
   }
 });
 Template.login.events({
-  'submit #login-form' : function(event, t){
+  'submit #login-form': function(event, t){
     event.preventDefault();
     // retrieve the input field values
     var username = t.find('#login-username').value
@@ -62,10 +61,9 @@ Template.login.events({
       else
         console.log("Success!")
     });
-       return false; 
-    }
+    return false; 
+  }
 });
-
 Template.postView.helpers({
   isOwner: function(owner){
      return (Meteor.userId() == owner);
