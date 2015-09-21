@@ -15,14 +15,21 @@ Template.post.events({
   "click .delete": function () {
     Meteor.call("deletePost", this._id);
   },
-
   "click .update": function() {
     Meteor.call("updatePost", this._id);
   },
-
-  "click .post-innerbox": function() {
+  "click .post-image": function() {
     Router.go('post/:_postId', {_postId: this._id});
+  },
+  "mouseenter .post-outerbox": function(event, template) {
+    template.$('.post-title').css('visibility', 'visible'),
+    template.$('.post-outerbox').css('cursor', 'pointer')
+  },
+  "mouseleave .post-outerbox": function() {
+    $('.post-title').css('visibility', 'hidden'),
+    $('.post-outerbox').css('cursor', 'default')
   }
+
 });
 Template.nav.events({
   "click #logout-button": function() {
