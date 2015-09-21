@@ -37,6 +37,8 @@ header .navbar-default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); /* IE 9 */
+  -webkit-transform: translate(-50%, -50%);
   color: white;
   text-align: center;
   font-size: 70px;
@@ -78,6 +80,69 @@ header .navbar-default {
 .new-user input {
   width: 95%;
   margin: 8px; 
+}
+.splash-seperation {
+  height: 180px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.splash-left{
+  height: 98%;
+  width: 33%;
+  display: inline-block;
+  position: relative;
+  padding-bottom: 1%;
+}
+.splash-left img {
+  width: 52%;
+  height: 100%;
+  margin-right: auto;
+  margin-left: 24%;
+  position: absolute;
+  border-radius: 50%;
+}
+.splash-left img:hover {
+  box-shadow: 0px 0px 10px black;
+  cursor: pointer;
+}
+.splash-middle {
+  height: 98%;
+  width: 33%;
+  display: inline-block;
+  position: relative;
+  padding-bottom: 1%;
+}
+.splash-middle img {
+  width: 52%;
+  height: 100%;
+  margin-right: auto;
+  margin-left: 24%;
+  position: absolute;
+  border-radius: 50%;
+}
+.splash-middle img:hover {
+  box-shadow: 0px 0px 10px black;
+  cursor: pointer;
+}
+.splash-right {
+  height: 98%;
+  width: 33%;
+  display: inline-block;
+  position: relative;
+  padding-bottom: 1%;
+}
+.splash-right img {
+  width: 52%;
+  height: 100%;
+  margin-right: auto;
+  margin-left: 24%;
+  position: absolute;
+  border-radius: 50%;
+}
+.splash-right img:hover {
+  box-shadow: 0px 0px 10px black;
+  cursor: pointer;
 }
 .all-posts {
   margin-left: auto;
@@ -124,6 +189,11 @@ header .navbar-default {
   text-align: center;
   font-size: 15px;
   font-weight: bold;
+  visibility: hidden;
+}
+.post-title-show {
+  visibility: visible;
+  cursor: pointer;
 }
 .post-picture{
   width:100%;
