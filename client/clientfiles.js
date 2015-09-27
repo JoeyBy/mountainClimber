@@ -42,30 +42,14 @@ Template.newUser.events({
     , email = t.find('#create-email').value
     , aboutMe = t.find('#create-about-me').value
     , location = t.find('#create-location').value
-    , password = t.find('#create-password').value
-    , picture = t.find('#profile-picture').value;
+    , password = t.find('#create-password').value;
 
-    console.log("picture: " + picture)
-
-    FS.Utility.eachFile(event, function(picture) {
-      Images.insert(picture, function (err, fileObj) {
-        if (err) {
-          console.log("something went wrong")
-        } else {
-          console.log("fileObj: " + fileObj)
-          imagesURL = {
-            "profile.image" : "~/uploads/" + fileObj._id
-          }  
-        }
-      });
-    });
-    Meteor.call("createNewUser", username, email, aboutMe, location, password, imagesURL)
+    Meteor.call("createNewUser", username, email, aboutMe, location, password)
       event.target.username.value = '';
       event.target.email.value = '';
       event.target.aboutMe.value = '';
       event.target.location.value = '';
       event.target.password.value = '';
-      // event.target.picture.reset ;
   }
 });
 Template.login.events({
