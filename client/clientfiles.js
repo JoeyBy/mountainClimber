@@ -29,7 +29,6 @@ Template.post.events({
     $('.post-title').css('visibility', 'hidden'),
     $('.post-outerbox').css('cursor', 'default')
   }
-
 });
 Template.nav.events({
   "click #logout-button": function() {
@@ -39,11 +38,11 @@ Template.nav.events({
 Template.newUser.events({
   'submit .register': function(event, t){
     event.preventDefault();
-    var username = t.find('#create-username').value;
-    var email = t.find('#create-email').value;
-    var aboutMe = t.find('#create-about-me').value;
-    var location = t.find('#create-location').value;
-    var password = t.find('#create-password').value;
+    var username = t.find('#create-username').value
+    , email = t.find('#create-email').value
+    , aboutMe = t.find('#create-about-me').value
+    , location = t.find('#create-location').value
+    , password = t.find('#create-password').value;
 
     Meteor.call("createNewUser", username, email, aboutMe, location, password)
       event.target.username.value = '';
@@ -61,7 +60,6 @@ Template.login.events({
       , password = t.find('#login-password').value;
       // Trim and validate your fields here.... 
 
-      // Meteor.loginWithPassword() function.
       Meteor.loginWithPassword(username, password, function(err){
       if (err)
         console.log("SOMETHING DIDNT WORK!")
@@ -76,11 +74,6 @@ Template.postView.helpers({
      return (Meteor.userId() == owner);
   }
 });
-// Template.postView.helpers({
-//   postOwner: function(owner) {
-//     console.log(Meteor.users.find({_id: owner}))
-//   }
-// });
 Template.nav.helpers({
   currentUser: function() {
     return Meteor.user();

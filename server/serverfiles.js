@@ -6,3 +6,11 @@ Meteor.publish("posts", function() {
 Meteor.publish('allUsers', function() {
   return Meteor.users.find();
 });
+
+ProfileImage.allow({
+  'insert': function () {
+    // add custom authentication code here
+    return true;
+  }
+});
+
